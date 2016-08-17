@@ -1,13 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using System.Net;
 using System.IO;
@@ -25,22 +16,28 @@ namespace EvidencijaAndroidClient.Resources.repo
 
         public async void SendRequest(object sender, System.EventArgs args)
         {
-            string Result;
+            string Result = "Fail";
 
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(_url));
+            request.Timeout = 500;
             request.Method = "GET";
-
-            using (WebResponse response = await request.GetResponseAsync())
+            try
             {
-                using (Stream stream = response.GetResponseStream())
+                using (WebResponse response = request.GetResponse())
                 {
-                    StreamReader reader = new StreamReader(stream);
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        StreamReader reader = new StreamReader(stream);
 
-                    Result = await reader.ReadToEndAsync();
+                        Result = await reader.ReadToEndAsync();
 
-                    ((Button)sender).Text = Result;
+
+                    }
                 }
             }
+            catch (Exception ex)
+            { }
+            ((Button)sender).Text = Result;
 
         }
     }

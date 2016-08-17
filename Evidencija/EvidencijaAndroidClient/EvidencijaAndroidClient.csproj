@@ -49,8 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\ConnectionSettingsActivity.cs" />
+    <Compile Include="EvidencijaApplication.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\models\ConnectionSettings.cs" />
+    <Compile Include="Resources\models\ConnectionState.cs" />
+    <Compile Include="Resources\models\UserInfo.cs" />
     <Compile Include="Resources\repo\ConnectionTest.cs" />
+    <Compile Include="Resources\repo\DataStorageService.cs" />
+    <Compile Include="Resources\repo\NetworkStatusListener.cs" />
+    <Compile Include="Resources\repo\RequestService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +66,9 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\ConnectionSettings.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -73,6 +84,7 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
