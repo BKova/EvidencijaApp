@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Evidencija
@@ -18,8 +14,7 @@ namespace Evidencija
                 .UseUrls(args)
                 .UseStartup<Startup>()
                 .Build();
-
-            host.Run();
+                host.Run();
         }
     }
 }

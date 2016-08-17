@@ -1,0 +1,4 @@
+EvidencijaAndroidClient.MainActivity, EvidencijaAndroidClient;md5f6927bdd3591d41b9d81962613f65850.MainActivity
+EvidencijaAndroidClient.MainActivity, EvidencijaAndroidClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5f6927bdd3591d41b9d81962613f65850.MainActivity
+EvidencijaAndroidClient.MainActivity;md5f6927bdd3591d41b9d81962613f65850.MainActivity
+evidencijaandroidclient.MainActivity;md5f6927bdd3591d41b9d81962613f65850.MainActivity

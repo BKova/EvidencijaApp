@@ -1,5 +1,5 @@
---temp-output:D:\Bartul\Git\Sistemi\Evidencija\src\Evidencija\obj\Debug\netcoreapp1.0\
---out:D:\Bartul\Git\Sistemi\Evidencija\src\Evidencija\bin\Debug\netcoreapp1.0\Evidencija.dll
+--temp-output:C:\Users\bartul\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\obj\Debug\netcoreapp1.0\
+--out:C:\Users\bartul\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\bin\Debug\netcoreapp1.0\EvidencijaWeb.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -8,7 +8,7 @@
 --suppress-warning:CS1705
 --optimize:False
 --emit-entry-point:True
---output-name:Evidencija
+--output-name:EvidencijaWeb
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
@@ -121,6 +121,6 @@
 --reference:C:\Users\bartul\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\bartul\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\bartul\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"D:\Bartul\Git\Sistemi\Evidencija\src\Evidencija\obj\Debug\netcoreapp1.0\Evidencijadotnet-compile.deps.json",Evidencija.deps.json
-D:\Bartul\Git\Sistemi\Evidencija\src\Evidencija\Program.cs
-D:\Bartul\Git\Sistemi\Evidencija\src\Evidencija\Startup.cs
+--resource:"C:\Users\bartul\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\obj\Debug\netcoreapp1.0\EvidencijaWebdotnet-compile.deps.json",EvidencijaWeb.deps.json
+C:\Users\bartul\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Program.cs
+C:\Users\bartul\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Startup.cs
