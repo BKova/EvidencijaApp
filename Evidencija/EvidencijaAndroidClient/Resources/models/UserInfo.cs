@@ -1,18 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using System.Security.Cryptography;
 
 namespace EvidencijaAndroidClient.Resources.models
 {
     class UserInfo
     {
+        public UserInfo()
+        {
+            UserName = "";
+            CertificationCode = -1;
+        }
+        public string UserName { get; set; }
+
+        public int CertificationCode { get; set; }
     }
 }

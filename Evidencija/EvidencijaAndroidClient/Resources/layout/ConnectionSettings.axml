@@ -6,12 +6,22 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:hint="Name" />
+        android:id="@+id/IPAddress"
+        android:hint="IP Address" />
     <EditText
-        android:inputType="textPassword"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText1"
-        android:hint="Password" />
+        android:id="@+id/PortNumber"
+        android:hint="Port" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/WebServiceLocation"
+        android:hint="Web Service" />
+    <Button
+        android:text="Close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CloseButton1" />
 </LinearLayout>

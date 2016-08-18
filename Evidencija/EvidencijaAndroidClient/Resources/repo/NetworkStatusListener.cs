@@ -1,30 +1,53 @@
 using Android.Content;
 using Android.Net;
 using Android.Net.Wifi;
+using System.Threading.Tasks;
 
 namespace EvidencijaAndroidClient.Resources.repo
 {
+    public delegate Task<bool> CheckNetworkDelegate(WifiManager wifiManager);
+
+    public delegate void RegisterOnNetworkDelegate();
+
     [BroadcastReceiver]
     class NetworkStatusListener : BroadcastReceiver
     {
-        //private RequestService _requestServiceManager;
+        public CheckNetworkDelegate CheckNetwork { get; set; }
 
-        //public NetworkStatusListener(RequestService requestService)
-        //{
-        //    _requestServiceManager = requestService;
-        //}
-        public override void OnReceive(Context context, Intent intent)
+        public RegisterOnNetworkDelegate RegisterOnNetwork { get; set; }
+
+        public bool IsActivated { get; set; }
+
+        public NetworkStatusListener()
         {
+            IsActivated = false;
+        }
+
+        public NetworkStatusListener(bool isActivated)
+        {
+            IsActivated = isActivated;
+        }
+        public override async void OnReceive(Context context, Intent intent)
+        {
+            if (!IsActivated)
+            {
+                return;
+            }
+
             ConnectivityManager connectivityManager = (ConnectivityManager)context.GetSystemService(Context.ConnectivityService);
             NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
-            bool isConnectedOnWifi = activeConnection.Type == ConnectivityType.Wifi || activeConnection.Type == ConnectivityType.Wimax && activeConnection.IsAvailable;
+            if (activeConnection == null)
+            {
+                return;
+            }
+            bool isConnectedOnWifi = activeConnection.Type == ConnectivityType.Wifi && activeConnection.IsConnected;
             if (isConnectedOnWifi)
             {
                 WifiManager wifiManager = (WifiManager)context.GetSystemService(Context.WifiService);
 
-                //bool isCorrespondingNetwork = _requestServiceManager.CheckNetwork(wifiManager);
+                bool isCorrespondingNetwork = await CheckNetwork(wifiManager);
 
-                //if (isCorrespondingNetwork) _requestServiceManager.RegisterOnNetwork();
+                if (isCorrespondingNetwork) RegisterOnNetwork();
             }
         }
     }

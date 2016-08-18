@@ -14,11 +14,15 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int ApplyButton=0x7f050003;
-        public static final int ConnectionSettingsButton=0x7f050000;
-        public static final int OnOffButton=0x7f050002;
-        public static final int StatusText=0x7f050004;
-        public static final int UserSettingsButton=0x7f050001;
+        public static final int ApplyButton=0x7f050007;
+        public static final int CloseButton1=0x7f050003;
+        public static final int ConnectionSettingsButton=0x7f050004;
+        public static final int IPAddress=0x7f050000;
+        public static final int OnOffButton=0x7f050006;
+        public static final int PortNumber=0x7f050001;
+        public static final int StatusText=0x7f050008;
+        public static final int UserSettingsButton=0x7f050005;
+        public static final int WebServiceLocation=0x7f050002;
     }
     public static final class layout {
         public static final int connectionsettings=0x7f030000;

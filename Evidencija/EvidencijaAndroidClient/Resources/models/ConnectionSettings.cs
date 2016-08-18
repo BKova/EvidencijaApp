@@ -1,18 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 namespace EvidencijaAndroidClient.Resources.models
 {
     class ConnectionSettings
     {
+        public ConnectionSettings()
+        {
+            NetworkSSID = "";
+            ServerIP = "";
+            WebServiceLocation = "";
+        }
+        public string NetworkSSID { get; set; }
+
+        public string ServerIP { get; set; }
+
+        public string ServerPort { get; set; }
+        public string WebServiceLocation { get; set; }
     }
 }

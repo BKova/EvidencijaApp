@@ -18,7 +18,8 @@
     <ToggleButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/OnOffButton" />
+        android:id="@+id/OnOffButton"
+        android:checked="false" />
     <Button
         android:text="APPLY"
         android:layout_width="match_parent"

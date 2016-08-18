@@ -1,52 +1,29 @@
+using Android.Content;
 using Android.Util;
+using Newtonsoft.Json;
 using System;
 using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace EvidencijaAndroidClient.Resources.repo
 {
     static class DataStorageService
     {
-        public static void StoreData(object data)
+        public static void StoreData<T>(T Object, string fileName, Context context)
         {
-            XmlSerializer serializer = new XmlSerializer(data.GetType());
-            string textdata;
-            using (StringWriter stringWriter = new StringWriter())
-            using (XmlWriter xmlWriter = XmlWriter.Create(stringWriter))
-            {
-                serializer.Serialize(xmlWriter, data);
-                textdata = stringWriter.ToString();
-            }
-            string path = Android.OS.Environment.DataDirectory.AbsolutePath;
-            string filePath = Path.Combine(path, "EvidencijaApp/data.xml");
-            using (var file = File.Open(filePath, FileMode.OpenOrCreate, FileAccess.Write))
-            using (var streamWriter = new StreamWriter(file))
-                streamWriter.Write(textdata);
+            string data = JsonConvert.SerializeObject(Object);
+            var preference = context.GetSharedPreferences("EvidencijaApp", FileCreationMode.Private);
+            var Editor = preference.Edit();
+            Editor.PutString(fileName, data);
+
         }
 
-        public static object LoadData(Type t)
+        public static T LoadData<T>(string fileName, Context context)
         {
-            object data = new object();
-            string path = Android.OS.Environment.DataDirectory.AbsolutePath;
-            string filePath = Path.Combine(path, "EvidencijaApp/data.xml");
-            if(!File.Exists(filePath))
-            {
-                File.Create(filePath);
-            }
-            try
-            {
-                using (var file = File.Open(filePath, FileMode.Open, FileAccess.Read))
-                {
-                    XmlSerializer serializer = new XmlSerializer(t);
-                    data = serializer.Deserialize(file);
-                }
-            }
-            catch(Exception ex)
-            {
-                Log.Warn("FileLoad",ex.Message);
-            }
-            return data;
+            var preference = context.GetSharedPreferences("EvidencijaApp", FileCreationMode.Private);
+            string data = preference.GetString(fileName, null);
+            if (data == null) return default(T);
+
+            return JsonConvert.DeserializeObject<T>(data);
         }
     }
 }
