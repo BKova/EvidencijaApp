@@ -7,7 +7,7 @@ namespace EvidencijaAndroidClient.Resources.models
         public UserInfo()
         {
             UserName = "";
-            CertificationCode = -1;
+            CertificationCode = new int();
         }
         public string UserName { get; set; }
 

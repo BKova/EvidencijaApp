@@ -23,13 +23,6 @@ public class NetworkStatusListener
 			mono.android.TypeManager.Activate ("EvidencijaAndroidClient.Resources.repo.NetworkStatusListener, EvidencijaAndroidClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
-	public NetworkStatusListener (boolean p0) throws java.lang.Throwable
-	{
-		super ();
-		if (getClass () == NetworkStatusListener.class)
-			mono.android.TypeManager.Activate ("EvidencijaAndroidClient.Resources.repo.NetworkStatusListener, EvidencijaAndroidClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "System.Boolean, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", this, new java.lang.Object[] { p0 });
-	}
-
 
 	public void onReceive (android.content.Context p0, android.content.Intent p1)
 	{

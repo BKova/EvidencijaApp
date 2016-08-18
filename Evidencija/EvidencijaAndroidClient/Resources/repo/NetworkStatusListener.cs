@@ -16,20 +16,11 @@ namespace EvidencijaAndroidClient.Resources.repo
 
         public RegisterOnNetworkDelegate RegisterOnNetwork { get; set; }
 
-        public bool IsActivated { get; set; }
-
-        public NetworkStatusListener()
-        {
-            IsActivated = false;
-        }
-
-        public NetworkStatusListener(bool isActivated)
-        {
-            IsActivated = isActivated;
-        }
         public override async void OnReceive(Context context, Intent intent)
         {
-            if (!IsActivated)
+            bool isActivated = ((EvidencijaApplication)context).IsActivated;
+
+            if (!isActivated)
             {
                 return;
             }

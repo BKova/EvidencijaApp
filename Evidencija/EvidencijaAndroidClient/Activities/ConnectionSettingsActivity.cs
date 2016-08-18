@@ -2,11 +2,10 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using System;
-using static Android.Widget.TextView;
 
 namespace EvidencijaAndroidClient.Activities
 {
-    [Activity(Label = "ConnectionSettingsActivity", Theme = "@android:style/Theme.Material.NoActionBar", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "ConnectionSettingsActivity", Theme = "@android:style/Theme.Material.NoActionBar")]
     public class ConnectionSettingsActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -14,6 +13,10 @@ namespace EvidencijaAndroidClient.Activities
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.ConnectionSettings);
+
+            TextView ssid = FindViewById<TextView>(Resource.Id.SSID);
+
+            ssid.Text = ((EvidencijaApplication)Application).ConnectionSettingsChanged.NetworkSSID;
 
             TextView iPAddress = FindViewById<TextView>(Resource.Id.IPAddress);
 
@@ -31,6 +34,7 @@ namespace EvidencijaAndroidClient.Activities
 
             close.Click += ((object sender, EventArgs args) =>
             {
+                ((EvidencijaApplication)Application).ConnectionSettingsChanged.NetworkSSID = string.Format("\"{0}\"",ssid.Text);
                 ((EvidencijaApplication)Application).ConnectionSettingsChanged.ServerIP = iPAddress.Text;
                 ((EvidencijaApplication)Application).ConnectionSettingsChanged.ServerPort = portNumber.Text;
                 ((EvidencijaApplication)Application).ConnectionSettingsChanged.WebServiceLocation = webServiceLocation.Text;

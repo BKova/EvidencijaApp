@@ -6,6 +6,11 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/SSID"
+        android:hint="SSID" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/IPAddress"
         android:hint="IP Address" />
     <EditText

@@ -1,5 +1,6 @@
 using EvidencijaAndroidClient.Resources.models;
 using Microsoft.AspNet.SignalR.Client;
+using System;
 
 namespace EvidencijaAndroidClient.Resources.repo
 {
@@ -37,12 +38,16 @@ namespace EvidencijaAndroidClient.Resources.repo
 
             Hub = Connection.CreateHubProxy("EvidencijaHub");
 
-            Hub.Invoke("CheckIn", UserInfo.UserName, UserInfo.CertificationCode);
-
             Connection.Closed += (() => {
                 IsConnected = false;
                 Connection.Dispose();
             });
+
+            try { Hub.Invoke("CheckIn", UserInfo.UserName, UserInfo.CertificationCode); }
+            catch (Exception ex)
+            {
+                this.CloseConnection();
+            }
 
             IsConnected = true;
         }

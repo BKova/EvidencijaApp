@@ -14,7 +14,7 @@ namespace EvidencijaAndroidClient.Resources.repo
             var preference = context.GetSharedPreferences("EvidencijaApp", FileCreationMode.Private);
             var Editor = preference.Edit();
             Editor.PutString(fileName, data);
-
+            Editor.Commit();
         }
 
         public static T LoadData<T>(string fileName, Context context)

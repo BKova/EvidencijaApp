@@ -19,13 +19,14 @@ namespace EvidencijaAndroidClient.Resources.repo
             if (wifiManager.ConnectionInfo.SSID == Settings.NetworkSSID)
             {
                 string Uri = string.Format("{0}:{1}{2}/check", Settings.ServerIP, Settings.ServerPort, Settings.WebServiceLocation);
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(Uri));
-                request.Timeout = 5000;
-                request.Method = "GET";
                 string Result = "";
                 HttpStatusCode Status = HttpStatusCode.NotFound;
                 try
                 {
+                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(Uri));
+                    request.Timeout = 5000;
+                    request.Method = "GET";
+
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         using (Stream stream = response.GetResponseStream())

@@ -65,7 +65,7 @@ namespace EvidencijaAndroidClient
 
             ConnectionSettingsChanged = ConnectionSettings;
 
-            Reciver = new NetworkStatusListener(IsActivated);
+            Reciver = new NetworkStatusListener();
 
             Reciver.CheckNetwork = ConnectionService.CheckNetwork;
 
@@ -95,8 +95,6 @@ namespace EvidencijaAndroidClient
             if(CurrentConnectionStatus) SignalRService.StartConnection();
 
             ConnectionService.Settings = ConnectionSettings;
-
-            Reciver.IsActivated = IsActivated;
 
             DataStorageService.StoreData(UserInfo, "UserInfo.json",Context);
             DataStorageService.StoreData(ConnectionSettings, "ConnectionSettings.json",Context);

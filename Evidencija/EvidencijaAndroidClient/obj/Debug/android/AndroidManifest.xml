@@ -19,13 +19,8 @@
       </intent-filter>
     </activity>
     <receiver android:name="md511d06db65f8bd813bfe0895f0347a3fe.NetworkStatusListener" />
-    <activity android:icon="@drawable/icon" android:label="ConnectionSettingsActivity" android:theme="@android:style/Theme.Material.NoActionBar" android:name="md582edfdf232dde83af0f2b2b42ba08bb4.ConnectionSettingsActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-    <activity android:label="UserInfoActivity" android:name="md582edfdf232dde83af0f2b2b42ba08bb4.UserInfoActivity" />
+    <activity android:label="ConnectionSettingsActivity" android:theme="@android:style/Theme.Material.NoActionBar" android:name="md582edfdf232dde83af0f2b2b42ba08bb4.ConnectionSettingsActivity" />
+    <activity android:label="UserInfoActivity" android:theme="@android:style/Theme.Material.NoActionBar" android:name="md582edfdf232dde83af0f2b2b42ba08bb4.UserInfoActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="EvidencijaAndroidClient.EvidencijaAndroidClient.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

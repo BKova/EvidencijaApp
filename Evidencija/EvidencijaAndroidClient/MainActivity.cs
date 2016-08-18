@@ -32,13 +32,18 @@ namespace EvidencijaAndroidClient
 
             Button userSettings = FindViewById<Button>(Resource.Id.UserSettingsButton);
 
+            userSettings.Click += ((object sender, EventArgs args) => {
+                var intent = new Intent(this, typeof(UserInfoActivity));
+                StartActivity(intent);
+            });
+
             Button apply = FindViewById<Button>(Resource.Id.ApplyButton);
 
             apply.Click += ((EvidencijaApplication)Application).ChangeSettings;
 
             ToggleButton onOff = FindViewById<ToggleButton>(Resource.Id.OnOffButton);
 
-            onOff.Checked = (bool)((EvidencijaApplication)Application).IsActivated;
+            onOff.Checked = ((EvidencijaApplication)Application).IsActivated;
 
             onOff.CheckedChange += ((object sender, CheckedChangeEventArgs args) => {
                 ((EvidencijaApplication)Application).IsActivatedChange = args.IsChecked;

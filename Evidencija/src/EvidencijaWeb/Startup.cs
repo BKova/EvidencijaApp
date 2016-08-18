@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,9 +21,11 @@ namespace Evidencija
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("Radi");
+                if(context.Request.Path.Value.Contains("check")) await context.Response.WriteAsync("OK");
+
+                else await next();
             });
         }
     }
