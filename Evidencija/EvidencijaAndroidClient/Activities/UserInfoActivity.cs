@@ -16,21 +16,23 @@ namespace EvidencijaAndroidClient.Activities
 
             TextView userName = FindViewById<TextView>(Resource.Id.UserName);
 
-            userName.Text = ((EvidencijaApplication)Application).UserInfoChanged.UserName;
+            userName.Text = ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.UserInfoChanged.UserName;
 
             TextView password = FindViewById<TextView>(Resource.Id.Password);
 
-            password.Text = Convert.ToString(((EvidencijaApplication)Application).UserInfoChanged.CertificationCode);
+            password.Text = Convert.ToString(((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.UserInfoChanged.CertificationCode);
 
-            if (password.Text == "-1") password.Text = "";
+            if (password.Text.Length<3) password.Text = "";
 
              Button close = FindViewById<Button>(Resource.Id.CloseButton2);
 
             close.Click += ((object sender, EventArgs args) =>
             {
-                ((EvidencijaApplication)Application).UserInfoChanged.UserName = userName.Text;
-                if (password.Text != "") ((EvidencijaApplication)Application).UserInfoChanged.CertificationCode = Convert.ToInt32(password.Text);
-                else ((EvidencijaApplication)Application).UserInfoChanged.CertificationCode = -1;
+                ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.UserInfoChanged.UserName = userName.Text;
+
+                if (password.Text != "") ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.UserInfoChanged.CertificationCode = Convert.ToInt32(password.Text);
+
+                else ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.UserInfoChanged.CertificationCode = -1;
                 Finish();
             });
         }

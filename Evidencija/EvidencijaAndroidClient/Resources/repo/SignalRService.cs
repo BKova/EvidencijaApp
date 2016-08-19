@@ -5,7 +5,7 @@ using System;
 namespace EvidencijaAndroidClient.Resources.repo
 {
     public delegate void UpdateStatusColorDelegate(bool status);
-    class SignalRService
+    public class SignalRService
     {
         private HubConnection Connection { get; set; }
 

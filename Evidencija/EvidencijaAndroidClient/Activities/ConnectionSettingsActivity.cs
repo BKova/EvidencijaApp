@@ -16,28 +16,32 @@ namespace EvidencijaAndroidClient.Activities
 
             TextView ssid = FindViewById<TextView>(Resource.Id.SSID);
 
-            ssid.Text = ((EvidencijaApplication)Application).ConnectionSettingsChanged.NetworkSSID;
+            ssid.Text = ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.NetworkSSID;
 
             TextView iPAddress = FindViewById<TextView>(Resource.Id.IPAddress);
 
-            iPAddress.Text = ((EvidencijaApplication)Application).ConnectionSettingsChanged.ServerIP;
+            iPAddress.Text = ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.ServerIP;
 
             TextView portNumber = FindViewById<TextView>(Resource.Id.PortNumber);
 
-            portNumber.Text = ((EvidencijaApplication)Application).ConnectionSettingsChanged.ServerPort;
+            portNumber.Text = ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.ServerPort;
 
             TextView webServiceLocation = FindViewById<TextView>(Resource.Id.WebServiceLocation);
 
-            webServiceLocation.Text = ((EvidencijaApplication)Application).ConnectionSettingsChanged.WebServiceLocation;
+            webServiceLocation.Text = ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.WebServiceLocation;
 
             Button close = FindViewById<Button>(Resource.Id.CloseButton1);
 
             close.Click += ((object sender, EventArgs args) =>
             {
-                ((EvidencijaApplication)Application).ConnectionSettingsChanged.NetworkSSID = string.Format("\"{0}\"",ssid.Text);
-                ((EvidencijaApplication)Application).ConnectionSettingsChanged.ServerIP = iPAddress.Text;
-                ((EvidencijaApplication)Application).ConnectionSettingsChanged.ServerPort = portNumber.Text;
-                ((EvidencijaApplication)Application).ConnectionSettingsChanged.WebServiceLocation = webServiceLocation.Text;
+                ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.NetworkSSID = ssid.Text;
+
+                ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.ServerIP = iPAddress.Text;
+
+                ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.ServerPort = portNumber.Text;
+
+                ((EvidencijaApplication)Application).ServiceConnection.Binder.BackgroundService.ConnectionSettingsChanged.WebServiceLocation = webServiceLocation.Text;
+
                 Finish();
             });
         }

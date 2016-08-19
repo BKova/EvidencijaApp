@@ -73,8 +73,9 @@
     <Compile Include="EvidencijaApplication.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\models\ConnectionSettings.cs" />
-    <Compile Include="Resources\models\ConnectionState.cs" />
     <Compile Include="Resources\models\UserInfo.cs" />
+    <Compile Include="Resources\repo\BackgroundService.cs" />
+    <Compile Include="Resources\repo\BootCompleteListener.cs" />
     <Compile Include="Resources\repo\DataStorageService.cs" />
     <Compile Include="Resources\repo\NetworkStatusListener.cs" />
     <Compile Include="Resources\repo\ConnectionService.cs" />

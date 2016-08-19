@@ -51,7 +51,6 @@ C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debu
 C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
 C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug\EvidencijaAndroidClient.dll.mdb
 R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\EvidencijaAndroidClient.dll.config
 R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\EvidencijaAndroidClient.dll
 R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\EvidencijaAndroidClient.pdb
@@ -107,4 +106,6 @@ R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug
 R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug\res\layout\userinfo.xml
 R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug\EvidencijaAndroidClient.dll.mdb
-R:\Users\bartu\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\EvidencijaAndroidClient.dll.mdb
+C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug\res\layout\userinfo.xml
+C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\obj\Debug\EvidencijaAndroidClient.dll.mdb
+C:\Users\bartul\Source\Repos\Sistemi\Evidencija\EvidencijaAndroidClient\bin\Debug\EvidencijaAndroidClient.dll.mdb

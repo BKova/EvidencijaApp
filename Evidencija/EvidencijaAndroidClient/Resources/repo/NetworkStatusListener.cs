@@ -10,7 +10,7 @@ namespace EvidencijaAndroidClient.Resources.repo
     public delegate void RegisterOnNetworkDelegate();
 
     [BroadcastReceiver]
-    class NetworkStatusListener : BroadcastReceiver
+    public class NetworkStatusListener : BroadcastReceiver
     {
         public CheckNetworkDelegate CheckNetwork { get; set; }
 
@@ -18,7 +18,7 @@ namespace EvidencijaAndroidClient.Resources.repo
 
         public override async void OnReceive(Context context, Intent intent)
         {
-            bool isActivated = ((EvidencijaApplication)context).IsActivated;
+            bool isActivated = ((BackgroundService)context).IsActivated;
 
             if (!isActivated)
             {

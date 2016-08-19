@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 
 namespace EvidencijaAndroidClient.Resources.models
 {
-    class UserInfo
+    public class UserInfo
     {
         public UserInfo()
         {

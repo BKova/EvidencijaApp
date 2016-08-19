@@ -12,63 +12,56 @@ namespace EvidencijaAndroidClient
     [Activity(Label = "EvidencijaAndroidClient",Theme = "@android:style/Theme.Material.NoActionBar", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        private TextView _statusText;
+        public TextView statusText { get; set; }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
-
-            // Get our button from the layout resource,
-            // and attach an event to it
 
             Button connectionSettings = FindViewById<Button>(Resource.Id.ConnectionSettingsButton);
 
-            connectionSettings.Click += ((object sender, EventArgs args) => {
+            connectionSettings.Click += ((object sender, EventArgs args) =>
+            {
                 var intent = new Intent(this, typeof(ConnectionSettingsActivity));
                 StartActivity(intent);
             });
 
             Button userSettings = FindViewById<Button>(Resource.Id.UserSettingsButton);
 
-            userSettings.Click += ((object sender, EventArgs args) => {
+            userSettings.Click += ((object sender, EventArgs args) =>
+            {
                 var intent = new Intent(this, typeof(UserInfoActivity));
                 StartActivity(intent);
             });
 
             Button apply = FindViewById<Button>(Resource.Id.ApplyButton);
 
-            apply.Click += ((EvidencijaApplication)Application).ChangeSettings;
+            ((EvidencijaApplication)Application).ServiceConnection.Apply = apply;
 
             ToggleButton onOff = FindViewById<ToggleButton>(Resource.Id.OnOffButton);
 
-            onOff.Checked = ((EvidencijaApplication)Application).IsActivated;
+            ((EvidencijaApplication)Application).ServiceConnection.toggleButton = onOff;
 
-            onOff.CheckedChange += ((object sender, CheckedChangeEventArgs args) => {
-                ((EvidencijaApplication)Application).IsActivatedChange = args.IsChecked;
-            });
+            statusText = FindViewById<TextView>(Resource.Id.StatusText);
 
-            _statusText = FindViewById<TextView>(Resource.Id.StatusText);
-
-            UpdateStatus(((EvidencijaApplication)Application).SignalRService.IsConnected);
-
-            ((EvidencijaApplication)Application).SignalRService.UpdateStatusColor = UpdateStatus;
+            ((EvidencijaApplication)Application).ServiceConnection.UpdateStatusCollor = UpdateStatus;
         }
 
         public void UpdateStatus(bool status)
         {
             if (status)
             {
-                _statusText.Text = "Online";
+                statusText.Text = "Online";
 
-                _statusText.SetTextColor(Color.Green);
+                statusText.SetTextColor(Color.Green);
             }
             else
             {
-                _statusText.Text = "Offline";
+                statusText.Text = "Offline";
 
-                _statusText.SetTextColor(Color.Red);
+                statusText.SetTextColor(Color.Red);
             }
         }
     }

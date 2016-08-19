@@ -1,6 +1,6 @@
 namespace EvidencijaAndroidClient.Resources.models
 {
-    class ConnectionSettings
+   public class ConnectionSettings
     {
         public ConnectionSettings()
         {

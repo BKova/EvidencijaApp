@@ -1,12 +1,10 @@
 using Android.Content;
-using Android.Util;
 using Newtonsoft.Json;
 using System;
-using System.IO;
 
 namespace EvidencijaAndroidClient.Resources.repo
 {
-    static class DataStorageService
+    public static class DataStorageService
     {
         public static void StoreData<T>(T Object, string fileName, Context context)
         {

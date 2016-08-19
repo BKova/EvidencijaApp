@@ -6,7 +6,7 @@ using System.IO;
 
 namespace EvidencijaAndroidClient.Resources.repo
 {
-    internal class ConnectionService
+    public class ConnectionService
     {
         public ConnectionSettings Settings { get; set; }
 
@@ -16,7 +16,7 @@ namespace EvidencijaAndroidClient.Resources.repo
         }
         internal async System.Threading.Tasks.Task<bool> CheckNetwork(WifiManager wifiManager)
         {
-            if (wifiManager.ConnectionInfo.SSID == Settings.NetworkSSID)
+            if (wifiManager.ConnectionInfo.SSID == string.Format("\"{0}\"",Settings.NetworkSSID))
             {
                 string Uri = string.Format("{0}:{1}{2}/check", Settings.ServerIP, Settings.ServerPort, Settings.WebServiceLocation);
                 string Result = "";
