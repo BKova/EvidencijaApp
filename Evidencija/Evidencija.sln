@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EvidencijaWeb", "src\EvidencijaWeb\EvidencijaWeb.xproj", "{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvidencijaAndroidClient", "EvidencijaAndroidClient\EvidencijaAndroidClient.csproj", "{486AFF88-3E5C-4ACC-B625-428317AF6691}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EvidencijaWeb", "src\EvidencijaWeb\EvidencijaWeb.xproj", "{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,22 +20,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Release|Any CPU.Build.0 = Release|Any CPU
 		{486AFF88-3E5C-4ACC-B625-428317AF6691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{486AFF88-3E5C-4ACC-B625-428317AF6691}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{486AFF88-3E5C-4ACC-B625-428317AF6691}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{486AFF88-3E5C-4ACC-B625-428317AF6691}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{486AFF88-3E5C-4ACC-B625-428317AF6691}.Release|Any CPU.Build.0 = Release|Any CPU
 		{486AFF88-3E5C-4ACC-B625-428317AF6691}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442} = {3DE81C57-BE27-4E22-B7CB-650E43C0067D}
 		{486AFF88-3E5C-4ACC-B625-428317AF6691} = {3DE81C57-BE27-4E22-B7CB-650E43C0067D}
+		{7B9CB749-1F5F-4AF8-A2F1-062F9350B442} = {3DE81C57-BE27-4E22-B7CB-650E43C0067D}
 	EndGlobalSection
 EndGlobal

@@ -27,7 +27,7 @@ namespace EvidencijaAndroidClient
             var manager = (ActivityManager)GetSystemService(ActivityService);
             var services = manager.GetRunningServices(int.MaxValue).Select(service => service.Service.ClassName).ToList();
 
-            StartService(new Intent("com.xamarin.BackgroundServiceEvidencije"));
+            if(!services.Contains("com.xamarin.BackgroundServiceEvidencije")) StartService(new Intent("com.xamarin.BackgroundServiceEvidencije"));
 
             var backgroundServiceIntent = new Intent("com.xamarin.BackgroundServiceEvidencije");
             var serviceConnection = new BackgroundServiceConnection(this);

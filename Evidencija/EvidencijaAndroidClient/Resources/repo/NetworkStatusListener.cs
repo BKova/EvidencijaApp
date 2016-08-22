@@ -1,6 +1,7 @@
 using Android.Content;
 using Android.Net;
 using Android.Net.Wifi;
+using Android.Widget;
 using System.Threading.Tasks;
 
 namespace EvidencijaAndroidClient.Resources.repo
@@ -18,6 +19,13 @@ namespace EvidencijaAndroidClient.Resources.repo
 
         public override async void OnReceive(Context context, Intent intent)
         {
+            Toast.MakeText
+                (
+                    context,
+                    "The BootCompletedExample application catches the BootCompleted broadcast message",
+                    ToastLength.Long
+                ).Show();
+
             bool isActivated = ((BackgroundService)context).IsActivated;
 
             if (!isActivated)

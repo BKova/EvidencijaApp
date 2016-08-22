@@ -7,6 +7,7 @@ using EvidencijaAndroidClient.Resources.models;
 using EvidencijaAndroidClient.Resources.repo;
 using Android.Net;
 using Android.Widget;
+using Android.Util;
 
 namespace EvidencijaAndroidClient
 {
@@ -129,6 +130,8 @@ namespace EvidencijaAndroidClient
 
         public BackgroundServiceBinder Binder { get; set; }
 
+        public bool isBoundToUi { get; set; }
+
         EvidencijaApplication application;
 
         public BackgroundServiceConnection(EvidencijaApplication Application)
@@ -142,6 +145,9 @@ namespace EvidencijaAndroidClient
                 application.Binder = binder;
                 application.IsBound = true;
                 this.Binder = (BackgroundServiceBinder)service;
+
+            if (isBoundToUi == false || toggleButton == null) return;
+
             toggleButton.Checked = Binder.BackgroundService.IsActivated;
 
             toggleButton.CheckedChange += (s, args) => { Binder.BackgroundService.IsActivatedChange = args.IsChecked; };

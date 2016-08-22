@@ -1,6 +1,7 @@
+using System;
 using Android.App;
 using Android.Content;
-using Android.Widget;
+using System.Linq;
 
 namespace EvidencijaAndroidClient.Resources.repo
 {
@@ -10,21 +11,9 @@ namespace EvidencijaAndroidClient.Resources.repo
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            //Intent service = new Intent("com.xamarin.BackgroundServiceEvidencije");
-            //service.AddFlags(ActivityFlags.NewTask);
-            //service.AddFlags(ActivityFlags.FromBackground);
-            //service.PutExtras(intent);
-            //context.StartService(service);
-
-            if (intent.Action == Intent.ActionBootCompleted)
-            {
-                Toast.MakeText
-                (
-                    context,
-                    "The BootCompletedExample application catches the BootCompleted broadcast message",
-                    ToastLength.Long
-                ).Show();
-            }
+            var manager = (ActivityManager)context.GetSystemService(Context.ActivityService);
+            var services = manager.GetRunningServices(int.MaxValue).Select(service => service.Service.ClassName).ToList();
+            if (!services.Contains("com.xamarin.BackgroundServiceEvidencije")) context.StartService(new Intent("com.xamarin.BackgroundServiceEvidencije"));
         }
     }
 }

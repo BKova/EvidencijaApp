@@ -47,6 +47,8 @@ namespace EvidencijaAndroidClient
             statusText = FindViewById<TextView>(Resource.Id.StatusText);
 
             ((EvidencijaApplication)Application).ServiceConnection.UpdateStatusCollor = UpdateStatus;
+
+            ((EvidencijaApplication)Application).ServiceConnection.isBoundToUi = true;
         }
 
         public void UpdateStatus(bool status)
