@@ -11,6 +11,9 @@ namespace Evidencija
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR(options => {
+                options.Hubs.EnableDetailedErrors = true;
+            });
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -20,6 +23,8 @@ namespace Evidencija
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSignalR("/signalr");
 
             app.Use(async (context, next) =>
             {
