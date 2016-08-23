@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Evidencija.Database.Models;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Hubs;
 using System;
 using System.Collections.Generic;
@@ -10,26 +11,51 @@ namespace Evidencija.Hubs
     [HubName("EvidencijaHub")]
     public class EvidencijaHub : Hub
     {
-        private IList<User> CurrentUsers { get; set; }
+        private UserCollection CurrentUsers { get; set; }
 
-        public EvidencijaHub() : base()
+        private IDbContextBinder _binder;
+
+        public EvidencijaHub(IDbContextBinder Binder, UserCollection UserCollection) : base()
         {
-            CurrentUsers = new List<User>();
+            CurrentUsers = UserCollection;
         }
         
         public void CheckIn(string UserName, int Key)
         {
-            CurrentUsers.Add(new User(){UserName=UserName, Key = Key, ConnectionId = Context.ConnectionId, TimeRegistered = DateTime.Now});
+            CurrentUsers.Users.Add(new User(){UserName=UserName, Key = Key, ConnectionId = Context.ConnectionId, TimeRegistered = DateTime.Now});
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
-            CurrentUsers.Remove(CurrentUsers.Where(User => User.ConnectionId == Context.ConnectionId).SingleOrDefault());
+            TimeStamp Stamp = new TimeStamp();
+
+            var connectionUser = CurrentUsers.Users.Where(User => User.ConnectionId == Context.ConnectionId).SingleOrDefault();
+
+            Stamp.User = _binder.GetUser(connectionUser.UserName, connectionUser.Key);
+
+            if(Stamp.User != default(Database.Models.User))
+            {
+                Stamp.Start = connectionUser.TimeRegistered;
+                Stamp.End = DateTime.Now;
+                Stamp.Duration = Stamp.End - Stamp.Start;
+                Stamp.Closed = true;
+                _binder.CreateTimeStamp(Stamp);
+            }
+
+                CurrentUsers.Users.Remove(CurrentUsers.Users.Where(User => User.ConnectionId == Context.ConnectionId).SingleOrDefault());
             return base.OnDisconnected(stopCalled);
         }
     }
+    public class UserCollection
+    {
+        public UserCollection()
+        {
+            Users = new List<User>();
+        }
+        public IList<User> Users { get; set; }
+    }
 
-    internal class User
+    public class User
     {
         public string ConnectionId { get; set; }
 

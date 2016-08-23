@@ -20,6 +20,7 @@
       "launchBrowser": true,
       "launchUrl": "http://localhost:5000",
       "environmentVariables": {
+        "ConnectionString": "Data Source=192.168.1.2,1433;Initial Catalog=EvidencijaDb;Persist Security Info=True;User ID=sa;Password=Optimist99",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }

@@ -11,6 +11,7 @@ public class EvidencijaApplication
 	static {
 		__md_methods = 
 			"n_onCreate:()V:GetOnCreateHandler\n" +
+			"n_onTerminate:()V:GetOnTerminateHandler\n" +
 			"";
 	}
 
@@ -26,6 +27,14 @@ public class EvidencijaApplication
 	}
 
 	private native void n_onCreate ();
+
+
+	public void onTerminate ()
+	{
+		n_onTerminate ();
+	}
+
+	private native void n_onTerminate ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

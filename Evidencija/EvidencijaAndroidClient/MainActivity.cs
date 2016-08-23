@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using static Android.Widget.CompoundButton;
 using Android.Graphics;
 using EvidencijaAndroidClient.Activities;
 using System;

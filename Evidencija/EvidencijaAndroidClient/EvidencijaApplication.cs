@@ -30,11 +30,16 @@ namespace EvidencijaAndroidClient
             if(!services.Contains("com.xamarin.BackgroundServiceEvidencije")) StartService(new Intent("com.xamarin.BackgroundServiceEvidencije"));
 
             var backgroundServiceIntent = new Intent("com.xamarin.BackgroundServiceEvidencije");
-            var serviceConnection = new BackgroundServiceConnection(this);
-            ServiceConnection = serviceConnection;
-            var success = BindService(backgroundServiceIntent, serviceConnection, Bind.AutoCreate);
+            ServiceConnection = new BackgroundServiceConnection(this);
+            BindService(backgroundServiceIntent, ServiceConnection, Bind.AutoCreate);
 
             base.OnCreate();
+        }
+
+        public override void OnTerminate()
+        {
+            UnbindService(ServiceConnection);
+            base.OnTerminate();
         }
     }
 }
