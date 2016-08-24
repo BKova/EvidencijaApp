@@ -38,10 +38,7 @@ namespace EvidencijaAndroidClient.Resources.repo
 
             Hub = Connection.CreateHubProxy("EvidencijaHub");
 
-            Connection.Closed += (() => {
-                IsConnected = false;
-                Connection.Dispose();
-            });
+            Connection.Closed += CloseConnection;
 
             try { Hub.Invoke("CheckIn", UserInfo.UserName, UserInfo.CertificationCode); }
             catch (Exception ex)

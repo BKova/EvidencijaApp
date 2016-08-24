@@ -23,12 +23,14 @@ namespace EvidencijaAndroidClient.Resources.repo
             if (!isActivated)
             {
                 return;
+                ((BackgroundService)context).SignalRService.IsConnected = false;
             }
 
             ConnectivityManager connectivityManager = (ConnectivityManager)context.GetSystemService(Context.ConnectivityService);
             NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
             if (activeConnection == null)
             {
+                ((BackgroundService)context).SignalRService.IsConnected = false;
                 return;
             }
             bool isConnectedOnWifi = activeConnection.Type == ConnectivityType.Wifi && activeConnection.IsConnected;
@@ -39,6 +41,10 @@ namespace EvidencijaAndroidClient.Resources.repo
                 bool isCorrespondingNetwork = await CheckNetwork(wifiManager);
 
                 if (isCorrespondingNetwork) RegisterOnNetwork();
+            }
+            else
+            {
+                ((BackgroundService)context).SignalRService.IsConnected = false;
             }
         }
     }

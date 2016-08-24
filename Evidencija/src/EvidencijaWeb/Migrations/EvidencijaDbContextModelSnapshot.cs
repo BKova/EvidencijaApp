@@ -43,6 +43,8 @@ namespace EvidencijaWeb.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("IsAdmin");
+
                     b.Property<int>("LoginKey");
 
                     b.Property<string>("UserName")

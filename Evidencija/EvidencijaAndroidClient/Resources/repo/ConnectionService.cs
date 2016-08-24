@@ -24,7 +24,7 @@ namespace EvidencijaAndroidClient.Resources.repo
                 try
                 {
                     HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(Uri));
-                    request.Timeout = 5000;
+                    request.Timeout = 500;
                     request.Method = "GET";
 
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())

@@ -21,6 +21,8 @@ namespace Evidencija.Database.Models
         [Required]
         public int LoginKey { get; set; }
 
+        public bool IsAdmin { get; set; }
+
         public virtual ICollection<TimeStamp> UserTimeStamps { get; set; }
     }
 }

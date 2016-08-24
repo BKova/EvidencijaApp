@@ -39,6 +39,8 @@ namespace Evidencija
 
             services.AddScoped<IDbContextBinder,DbContextBinder>();
             services.AddSingleton<UserCollection>();
+
+            services.AddMvc();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -57,6 +59,8 @@ namespace Evidencija
 
                 else await next();
             });
+
+            app.UseMvc();
         }
     }
 }

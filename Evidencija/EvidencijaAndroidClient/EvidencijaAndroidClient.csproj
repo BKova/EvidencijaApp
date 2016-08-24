@@ -75,6 +75,8 @@
     <Compile Include="Resources\models\ConnectionSettings.cs" />
     <Compile Include="Resources\models\UserInfo.cs" />
     <Compile Include="Resources\repo\BackgroundService.cs" />
+    <Compile Include="Resources\repo\BackgroundServiceBinder.cs" />
+    <Compile Include="Resources\repo\BackgroundServiceConnection.cs" />
     <Compile Include="Resources\repo\DataStorageService.cs" />
     <Compile Include="Resources\repo\NetworkStatusListener.cs" />
     <Compile Include="Resources\repo\ConnectionService.cs" />
@@ -86,7 +88,6 @@
     <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\ConnectionSettings.axml">
       <SubType>Designer</SubType>

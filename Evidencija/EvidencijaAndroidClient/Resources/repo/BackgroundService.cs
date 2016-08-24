@@ -7,7 +7,6 @@ using EvidencijaAndroidClient.Resources.models;
 using EvidencijaAndroidClient.Resources.repo;
 using Android.Net;
 using Android.Widget;
-using Android.Util;
 
 namespace EvidencijaAndroidClient
 {
@@ -95,74 +94,21 @@ namespace EvidencijaAndroidClient
 
             SignalRService.UserInfo = UserInfo;
 
-            if (CurrentConnectionStatus) SignalRService.StartConnection();
+            if (CurrentConnectionStatus && IsActivated) SignalRService.StartConnection();
 
             ConnectionService.Settings = ConnectionSettings;
 
             DataStorageService.StoreData(UserInfo, "UserInfo.json", this);
             DataStorageService.StoreData(ConnectionSettings, "ConnectionSettings.json", this);
             DataStorageService.StoreData(IsActivated, "IsActivated.json", this);
+
+            Reciver.OnReceive(this, new Intent());
         }
 
         public override IBinder OnBind(Intent intent)
         {
             Binder = new BackgroundServiceBinder(this);
             return Binder;
-        }
-    }
-
-    public class BackgroundServiceBinder : Binder
-    {
-        public BackgroundService BackgroundService { get; set; }
-
-        public BackgroundServiceBinder(BackgroundService backgroundService)
-        {
-            BackgroundService = backgroundService;
-        }
-    }
-    public class BackgroundServiceConnection : Java.Lang.Object, IServiceConnection
-    {
-        public ToggleButton toggleButton { get; set; }
-
-        public UpdateStatusColorDelegate UpdateStatusCollor { get; set; }
-
-        public Button Apply { get; set; }
-
-        public BackgroundServiceBinder Binder { get; set; }
-
-        public bool isBoundToUi { get; set; }
-
-        EvidencijaApplication application;
-
-        public BackgroundServiceConnection(EvidencijaApplication Application)
-        {
-            application = Application;
-        }
-        public void OnServiceConnected(ComponentName name, IBinder service)
-        {
-            var backgroundServiceBinder = service as BackgroundServiceBinder;
-                var binder = (BackgroundServiceBinder)service;
-                application.Binder = binder;
-                application.IsBound = true;
-                this.Binder = (BackgroundServiceBinder)service;
-
-            if (isBoundToUi == false || toggleButton == null) return;
-
-            toggleButton.Checked = Binder.BackgroundService.IsActivated;
-
-            toggleButton.CheckedChange += (s, args) => { Binder.BackgroundService.IsActivatedChange = args.IsChecked; };
-
-            UpdateStatusCollor(Binder.BackgroundService.SignalRService.IsConnected);
-
-            Apply.Click += (s, args) => { Binder.BackgroundService.ChangeSettings(s, args); };
-
-            Binder.BackgroundService.SignalRService.UpdateStatusColor = UpdateStatusCollor;
-
-        }
-
-        public void OnServiceDisconnected(ComponentName name)
-        {
-            application.IsBound = false;
         }
     }
 }
