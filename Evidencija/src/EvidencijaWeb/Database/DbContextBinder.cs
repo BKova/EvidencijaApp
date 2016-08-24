@@ -12,7 +12,11 @@ namespace Evidencija.Database.Models
 
         bool DeleteUser(int UserId);
 
+        ICollection<User> GetAllUsers();
+
         User GetUser(string UserName, int KeyCode);
+
+        User GetUser(int userId);
 
         ICollection<TimeStamp> UserTimeStamps(User User);
 
@@ -52,6 +56,8 @@ namespace Evidencija.Database.Models
 
         public User CreateUser(User User)
         {
+            if (_evidencijaDbContext.Users.Where(u => u.UserName == User.UserName) != null) return new User();
+
             try
             {
                 _evidencijaDbContext.Users.Add(User);
@@ -92,6 +98,11 @@ namespace Evidencija.Database.Models
             return true;
         }
 
+        public ICollection<User> GetAllUsers()
+        {
+           return _evidencijaDbContext.Users.ToList();
+        }
+
         public TimeStamp GetTimeStamp(int TimeStampId)
         {
             try
@@ -102,6 +113,11 @@ namespace Evidencija.Database.Models
             {
             }
             return new TimeStamp();
+        }
+
+        public User GetUser(int userId)
+        {
+            return _evidencijaDbContext.Users.Find(userId);
         }
 
         public User GetUser(string UserName, int KeyCode)

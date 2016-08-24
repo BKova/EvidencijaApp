@@ -18,6 +18,7 @@ namespace Evidencija.Hubs
         public EvidencijaHub(IDbContextBinder Binder, UserCollection UserCollection) : base()
         {
             CurrentUsers = UserCollection;
+            _binder = Binder;
         }
         
         public void CheckIn(string UserName, int Key)

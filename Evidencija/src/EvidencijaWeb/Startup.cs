@@ -8,12 +8,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Evidencija.Database.Models;
 using Evidencija.Hubs;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Evidencija.Auth;
+using Evidencija.Encription;
+using Evidencija.Middleware;
 
 namespace Evidencija
 {
     public class Startup
     {
         private IConfiguration Config { get; set; }
+
+        private SecurityKey _RSAKey { get; set; }
+
+        private TokenAuthenticationOptions _tokenOptions { get; set; }
+
 
         public Startup(IHostingEnvironment env)
         {
@@ -23,12 +34,28 @@ namespace Evidencija
 
             builder.AddEnvironmentVariables();
             Config = builder.Build();
-
-            if(env.IsDevelopment()) Config["ConnectionString"] += "";
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthorization(auth =>
+            {
+                auth.DefaultPolicy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser().Build();
+
+                auth.AddPolicy("Admin", new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser().RequireClaim("IsAdmin", new[] { "True" }).Build());
+            });
+
+            _RSAKey = new RsaSecurityKey(RSAKeyUtils.GetRandomKey());
+
+            _tokenOptions = new TokenAuthenticationOptions
+            (
+                Audience: "EvidencijaUsers",
+                Issuer: "EvidencijaWebService",
+                SigningCredentials: new SigningCredentials(_RSAKey, SecurityAlgorithms.RsaSha256Signature)
+            );
+
             services.AddSignalR(options => {
                 options.Hubs.EnableDetailedErrors = true;
             });
@@ -39,6 +66,8 @@ namespace Evidencija
 
             services.AddScoped<IDbContextBinder,DbContextBinder>();
             services.AddSingleton<UserCollection>();
+            services.AddSingleton<TokenAuthenticationOptions>(_tokenOptions);
+            services.AddSingleton<JwtTokenProvider>();
 
             services.AddMvc();
         }
@@ -51,14 +80,16 @@ namespace Evidencija
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSignalR("/signalr");
+            app.UseCustomAuthentication();
 
-            app.Use(async (context, next) =>
-            {
-                if(context.Request.Path.Value.Contains("check")) await context.Response.WriteAsync("OK");
+            app.UseSignalR();
 
-                else await next();
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    if(context.Request.Path.Value.Contains("check")) await context.Response.WriteAsync("OK");
+
+            //    else await next();
+            //});
 
             app.UseMvc();
         }

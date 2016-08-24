@@ -9,5 +9,6 @@ namespace Evidencija.Controllers.RequestBinders
     {
        public string UserName { get; set; }
        public int Key { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }
