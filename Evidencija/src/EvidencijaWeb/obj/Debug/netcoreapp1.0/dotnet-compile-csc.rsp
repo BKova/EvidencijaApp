@@ -194,6 +194,7 @@
 "R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Auth\JwtTokenProvider.cs"
 "R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Auth\TokenProviderOptions.cs"
 "R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\AuthController.cs"
+"R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\RecordsController.cs"
 "R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\RequestBinders\AuthRequest.cs"
 "R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\RequestBinders\AuthRespone.cs"
 "R:\Users\bartu\Source\Repos\Sistemi\Evidencija\src\EvidencijaWeb\Database\DbContextBinder.cs"
