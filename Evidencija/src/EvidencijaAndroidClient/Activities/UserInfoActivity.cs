@@ -1,3 +1,5 @@
+///Created by: Bartul Kovaèiæ
+///Github: https:github.com/BKova
 using Android.App;
 using Android.OS;
 using Android.Widget;

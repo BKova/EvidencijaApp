@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Microsoft.AspNetCore.Mvc;
 using Evidencija.Controllers.RequestBinders;
 using Evidencija.Database.Models;
 using Evidencija.Auth;

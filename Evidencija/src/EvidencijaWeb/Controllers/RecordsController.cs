@@ -1,4 +1,6 @@
-﻿using Evidencija.Database.Models;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Evidencija.Database.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;

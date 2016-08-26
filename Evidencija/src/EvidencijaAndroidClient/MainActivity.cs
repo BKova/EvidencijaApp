@@ -1,4 +1,6 @@
-﻿using Android.App;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Android.App;
 using Android.Widget;
 using Android.OS;
 using Android.Graphics;
@@ -8,7 +10,8 @@ using Android.Content;
 
 namespace EvidencijaAndroidClient
 {
-    [Activity(Label = "EvidencijaAndroidClient",Theme = "@android:style/Theme.Material.NoActionBar", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "EvidencijaAndroidClient",Theme = "@android:style/Theme.Material.NoActionBar", MainLauncher = true, 
+    Icon = "@drawable/icon", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class MainActivity : Activity
     {
         public TextView statusText { get; set; }

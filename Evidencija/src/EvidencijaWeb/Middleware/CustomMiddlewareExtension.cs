@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Microsoft.AspNetCore.Builder;
 
 namespace Evidencija.Middleware
 {

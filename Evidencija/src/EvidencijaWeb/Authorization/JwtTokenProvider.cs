@@ -1,4 +1,6 @@
-﻿using System;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using System;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Principal;

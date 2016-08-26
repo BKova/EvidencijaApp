@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using System.Linq;
 using Evidencija.Auth;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

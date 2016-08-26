@@ -1,4 +1,6 @@
-﻿using Evidencija.Database.Models;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Evidencija.Database.Models;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Hubs;
 using System;

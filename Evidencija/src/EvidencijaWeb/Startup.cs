@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+///Released under : "MIT Licence"
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -83,13 +87,6 @@ namespace Evidencija
             app.UseCustomAuthentication();
 
             app.UseSignalR();
-
-            //app.Use(async (context, next) =>
-            //{
-            //    if(context.Request.Path.Value.Contains("check")) await context.Response.WriteAsync("OK");
-
-            //    else await next();
-            //});
 
             app.UseMvc();
         }

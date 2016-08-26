@@ -1,3 +1,5 @@
+///Created by: Bartul Kovaèiæ
+///Github: https:github.com/BKova
 using System;
 using Android.App;
 using Android.Runtime;

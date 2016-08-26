@@ -1,4 +1,6 @@
-﻿using System;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -56,7 +58,7 @@ namespace Evidencija.Database.Models
 
         public User CreateUser(User User)
         {
-            if (_evidencijaDbContext.Users.Where(u => u.UserName == User.UserName) != null) return new User();
+            if (_evidencijaDbContext.Users.Any(u => u.UserName == User.UserName)) return new User();
 
             try
             {

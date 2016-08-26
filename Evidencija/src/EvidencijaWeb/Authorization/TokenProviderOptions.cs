@@ -1,4 +1,6 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using Microsoft.IdentityModel.Tokens;
 
 namespace Evidencija.Auth
 {

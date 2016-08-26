@@ -1,3 +1,5 @@
+///Created by: Bartul Kovaèiæ
+///Github: https:github.com/BKova
 using EvidencijaAndroidClient.Resources.models;
 using Microsoft.AspNet.SignalR.Client;
 using System;

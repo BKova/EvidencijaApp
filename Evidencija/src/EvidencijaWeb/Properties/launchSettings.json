@@ -17,11 +17,11 @@
     },
     "Evidencija": {
       "commandName": "Project",
-      "commandLineArgs": "--server.urls=\"http://192.168.1.3:5001\"",
+      "commandLineArgs": "--server.urls=\"http://192.168.31.50:5001\"",
       "launchBrowser": true,
       "launchUrl": "http://192.168.1.3:5001",
       "environmentVariables": {
-        "ConnectionString": "Data Source=192.168.1.2,1433;Initial Catalog=EvidencijaDb;Persist Security Info=True;User ID=sa;Password=Optimist99",
+        "ConnectionString": "Data Source=localhost;Initial Catalog=Evidencija;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }

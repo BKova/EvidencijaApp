@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

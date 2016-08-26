@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using System.Security.Cryptography;
 
 namespace Evidencija.Encription
 {

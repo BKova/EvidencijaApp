@@ -1,4 +1,6 @@
-﻿using System;
+﻿///Created by: Bartul Kovačić
+///Github: https:github.com/BKova
+using System;
 using Android.Net.Wifi;
 using EvidencijaAndroidClient.Resources.models;
 using System.Net;
@@ -28,21 +30,15 @@ namespace EvidencijaAndroidClient.Resources.repo
                     request.Method = "GET";
 
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                    {
-                        using (Stream stream = response.GetResponseStream())
-                        {
-                            StreamReader reader = new StreamReader(stream);
-
-                            Result = await reader.ReadToEndAsync();
+                    {   
                             Status = response.StatusCode;
-                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     return false;
                 }
-                return (Result == "OK") && Status == HttpStatusCode.OK;
+                return Status == HttpStatusCode.OK;
 
             }
             else return false;
