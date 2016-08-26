@@ -156,6 +156,7 @@ C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Startup
 C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Authorization\JwtTokenProvider.cs
 C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Authorization\TokenProviderOptions.cs
 C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\AuthController.cs
+C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\CheckController.cs
 C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\RecordsController.cs
 C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\RequestBinders\AuthRequest.cs
 C:\Users\bartul\Source\Repos\Backup\Sistemi\Evidencija\src\EvidencijaWeb\Controllers\RequestBinders\AuthRespone.cs
